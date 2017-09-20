@@ -11,6 +11,10 @@ app.use(express.static('./public'));
 //fire controllers
 todoController(app);
 
+
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+
 //listen to port
-app.listen(3000);
+app.listen(port, ip);
 console.log('You are listing to port 3000');
